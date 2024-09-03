@@ -10,7 +10,6 @@ import com.silencio.peaq.model.DIDData
 import com.silencio.peaq.model.DIDDocumentCustomData
 import com.silencio.peaq.utils.EncryptionType
 import io.peaq.did.Document
-import jp.co.soramitsu.fearless_utils.extensions.fromHex
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.transform
 import kotlinx.coroutines.launch

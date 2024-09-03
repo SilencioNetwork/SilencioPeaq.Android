@@ -52,7 +52,7 @@ dependencies {
     api 'dev.sublab:common-kotlin:1.0.0'
 
     //RPC Call
-    api 'io.github.nova-wallet:substrate-sdk-android:1.11.1'
+    api 'io.github.nova-wallet:substrate-sdk-android:2.1.3'
     api 'com.neovisionaries:nv-websocket-client:2.14'
     api 'com.google.code.gson:gson:2.10.1'
 
@@ -71,7 +71,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("store.silencio", "peaq", "1.0.7")
+    coordinates("store.silencio", "peaq", "1.0.8")
 
     pom {
 
