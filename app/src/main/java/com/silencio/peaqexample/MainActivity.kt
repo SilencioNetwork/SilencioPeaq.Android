@@ -49,6 +49,16 @@ class MainActivity : AppCompatActivity() {
                 machineAddress = machineAddress,
                 machinePublicKey = machinePublicKey
             )
+            /**
+             * use this when you don't have issuer seed to generate didDocument
+                val documentWithoutSeed = peaqInstance.createDidDocumentWithoutSeed(
+                    issuerAddress = issuerAddress,
+                    ownerAddress = ownerAddress,
+                    machineAddress = machineAddress,
+                    machinePublicKey = machinePublicKey,
+                    signature = "ADD_YOUR_SIGNATURE_WHICH_SIGN_BY_YOUR_ISSUER"
+                )
+            */
             Log.e("Document", "Document : ${document}")
             val map = peaqInstance.createDid(
                 secretPhrase = machineSeed,
