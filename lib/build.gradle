@@ -66,7 +66,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates("store.silencio", "lib", "1.0.9")
+    coordinates("store.silencio", "lib", "1.0.10")
 
     pom {
 

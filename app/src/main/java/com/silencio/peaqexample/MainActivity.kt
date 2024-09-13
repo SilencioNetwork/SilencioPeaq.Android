@@ -9,6 +9,7 @@ import com.silencio.peaq.Peaq
 import com.silencio.peaq.model.DIDData
 import com.silencio.peaq.model.DIDDocumentCustomData
 import com.silencio.peaq.utils.EncryptionType
+import com.silencio.peaq.utils.PeaqUtils
 import io.peaq.did.Document
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.transform
@@ -30,17 +31,17 @@ class MainActivity : AppCompatActivity() {
         )
 
         lifecycleScope.launch {
-            val (issuerPublicKey, issuerPrivateKey, issuerAddress) = peaqInstance.getPublicPrivateKeyAddressFromMachineSeed(
+            val (issuerPublicKey, issuerPrivateKey, issuerAddress) = PeaqUtils.getPublicPrivateKeyAddressFromMachineSeed(
                 mnemonicWord = issuerSeed
             )
 
-            val ownerSeed = peaqInstance.generateMnemonicSeed()
-            val (ownerPublicKey, ownerPrivateKey, ownerAddress) = peaqInstance.getPublicPrivateKeyAddressFromMachineSeed(
+            val ownerSeed = PeaqUtils.generateMnemonicSeed()
+            val (ownerPublicKey, ownerPrivateKey, ownerAddress) = PeaqUtils.getPublicPrivateKeyAddressFromMachineSeed(
                 mnemonicWord = ownerSeed
             )
 
-            val machineSeed = peaqInstance.generateMnemonicSeed()
-            val (machinePublicKey, machinePrivateKey, machineAddress) = peaqInstance.getPublicPrivateKeyAddressFromMachineSeed(
+            val machineSeed = PeaqUtils.generateMnemonicSeed()
+            val (machinePublicKey, machinePrivateKey, machineAddress) = PeaqUtils.getPublicPrivateKeyAddressFromMachineSeed(
                 mnemonicWord = machineSeed
             )
 
@@ -81,9 +82,8 @@ class MainActivity : AppCompatActivity() {
                 )
                 val payload = Gson().toJson(payloadData)
                 val payloadHex =
-                    peaqInstance.signData(payload, issuerSeed, format = EncryptionType.ED25519)
+                    PeaqUtils.signData(payload, issuerSeed, format = EncryptionType.ED25519)
 
-                Log.e("PayLoadHex", "PayLoadHex ${payloadHex}")
 
                 val store = peaqInstance.storeMachineDataHash(
                     payloadData = payloadHex,
